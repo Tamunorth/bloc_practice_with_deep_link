@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "383782962465",
+    "project_id": "bloc-counter-b1604",
+    "storage_bucket": "bloc-counter-b1604.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:383782962465:android:97d7c156a96f493a442a60",
+        "android_client_info": {
+          "package_name": "com.example.bloc_counter_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "383782962465-grs7cf7oif4m77mhdjm6041qepmeqn6k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeo5sc6n-JfU_iV8Df70yrtFCY_L-_Xi0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "383782962465-grs7cf7oif4m77mhdjm6041qepmeqn6k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
