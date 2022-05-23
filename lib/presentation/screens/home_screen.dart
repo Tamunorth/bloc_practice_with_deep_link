@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_concepts/constants/enum.dart';
 import 'package:flutter_bloc_concepts/logic/cubit/counter_cubit/counter_cubit.dart';
 import 'package:flutter_bloc_concepts/logic/cubit/internet_cubit.dart';
-import 'package:flutter_bloc_concepts/logic/service/dynamic_link_service.dart';
 import 'package:flutter_bloc_concepts/presentation/router/app_router.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -17,8 +16,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  DynamicLinkService dynamicLinkService = DynamicLinkService();
-
   @override
   void initState() {
     // TODO: implement initState
