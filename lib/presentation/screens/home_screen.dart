@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_concepts/constants/enum.dart';
 import 'package:flutter_bloc_concepts/logic/cubit/counter_cubit/counter_cubit.dart';
-import 'package:flutter_bloc_concepts/logic/cubit/internet_cubit.dart';
+import 'package:flutter_bloc_concepts/logic/cubit/internet_cubit/internet_cubit.dart';
 import 'package:flutter_bloc_concepts/presentation/router/app_router.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext homeScreenContext) {
     return BlocListener<InternetCubit, InternetState>(
       listener: (context, state) {
         if (state is InternetConnected &&
@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               BlocBuilder<InternetCubit, InternetState>(
-                builder: (context, state) {
+                builder: (internetCubitContext, state) {
                   if (state is InternetConnected &&
                       state.connectionType == ConnectionType.Wifi) {
                     return Text(
@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
               BlocConsumer<CounterCubit, CounterState>(
-                builder: (context, state) {
+                builder: (counterCubitContext, state) {
                   if (state.counterValue < 0) {
                     return Text(
                       'BRR, NEGATIVE ' + state.counterValue.toString(),
@@ -134,18 +134,20 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 height: 24,
               ),
-              MaterialButton(
-                color: Colors.redAccent,
-                child: Text(
-                  'Go to Second Screen',
-                  style: TextStyle(color: Colors.white),
-                ),
-                onPressed: () {
-                  Navigator.of(context).pushNamed(
-                    '/second',
-                  );
-                },
-              ),
+              Builder(builder: (materialButtonContext) {
+                return MaterialButton(
+                  color: Colors.redAccent,
+                  child: Text(
+                    'Go to Second Screen',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: () {
+                    Navigator.of(materialButtonContext).pushNamed(
+                      '/second',
+                    );
+                  },
+                );
+              }),
               SizedBox(
                 height: 24,
               ),
@@ -156,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () {
-                  Navigator.of(context)
+                  Navigator.of(homeScreenContext)
                       .pushNamed(RoutingConstants.thirdScreenRoute);
                 },
               ),
